@@ -5,5 +5,5 @@
 </template>
 
 <style lang="less">
-
+  @import url("./assets/less/reset.less");
 </style>
