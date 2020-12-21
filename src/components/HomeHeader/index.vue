@@ -189,12 +189,12 @@ export default {
                                 position: absolute;
                                 width: @min-width;
                                 left: 0;
-                                // background-color: red;
                                 top: 112px;
                                 height: 0;                      
                                 box-shadow: 0px 7px 6px 0px rgba(0, 0, 0, 0.11);
                                 overflow: hidden;
                                 z-index: 100;
+                                background-color: #fff;
                                 &:hover{
                                     height: 220px;
                                     transition: height .5s;
