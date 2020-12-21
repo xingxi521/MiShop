@@ -1,15 +1,25 @@
 <template>
     <div class="home-main">
-        Home
+        <div class="container">
+            <HomeSwiper/>
+            <Advertise/>
+        </div>
         <ServerBar/>
     </div>
 </template>
 <script>
 import ServerBar from '../../components/ServerBar'
+import HomeSwiper from './HomeSwiper'
+import Advertise from './Advertise'
 export default {
     name:'Home',
     components:{
-        ServerBar
+        ServerBar,
+        HomeSwiper,
+        Advertise
     }
 }
 </script>
+<style lang="less" scoped>
+    @import url("../../assets/less/public.less");
+</style>
