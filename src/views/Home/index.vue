@@ -4,6 +4,7 @@
             <HomeSwiper/>
             <Advertise/>
         </div>
+        <Phone/>
         <ServerBar/>
     </div>
 </template>
@@ -11,12 +12,14 @@
 import ServerBar from '../../components/ServerBar'
 import HomeSwiper from './HomeSwiper'
 import Advertise from './Advertise'
+import Phone from './Phone'
 export default {
     name:'Home',
     components:{
         ServerBar,
         HomeSwiper,
-        Advertise
+        Advertise,
+        Phone
     }
 }
 </script>

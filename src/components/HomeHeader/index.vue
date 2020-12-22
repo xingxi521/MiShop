@@ -29,7 +29,7 @@
                                     <li class="child-item" v-for="(item) in ProductsData" :key="item.id">
                                         <router-link to="/">
                                             <div class="child-img">
-                                                <img :src="item.mainImage" alt="">
+                                                <img v-lazy="item.mainImage" alt="">
                                             </div>
                                             <p class="child-title">{{item.name}}</p>
                                             <p class="child-price">{{item.price | priceFilter}}</p>
@@ -71,7 +71,6 @@ export default {
             categoryId:100012
         }).then(res=>{
             this.ProductsData = res.data.list
-            console.log(this.ProductsData);
         });
     },
     filters:{

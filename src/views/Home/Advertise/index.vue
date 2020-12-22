@@ -1,10 +1,10 @@
 <template>
     <div class="Advertise-main">
         <div class="advertise-top">
-            <router-link to="/details/40"><img src="/imgs/ads/ads-1.png" alt=""></router-link>
-            <router-link to="/details/41"><img src="/imgs/ads/ads-2.jpg" alt=""></router-link>
-            <router-link to="/details/42"><img src="/imgs/ads/ads-3.png" alt=""></router-link>
-            <router-link to="/details/43"><img src="/imgs/ads/ads-4.jpg" alt=""></router-link>
+            <router-link to="/details/40"><img v-lazy="'/imgs/ads/ads-1.png'" alt=""></router-link>
+            <router-link to="/details/41"><img v-lazy="'/imgs/ads/ads-2.jpg'" alt=""></router-link>
+            <router-link to="/details/42"><img v-lazy="'/imgs/ads/ads-3.png'" alt=""></router-link>
+            <router-link to="/details/43"><img v-lazy="'/imgs/ads/ads-4.jpg'" alt=""></router-link>
         </div>
         <div class="advertise-bottom">
             <router-link to="/details/40"><img src="/imgs/banner-1.png" alt=""></router-link>

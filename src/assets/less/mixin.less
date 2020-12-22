@@ -6,3 +6,24 @@
     width: @w;
     height: @h;
 }
+//定位
+.position(@pos:absolute;@left:0;@top:0;@w:100%;@h:100%){
+    position: @pos;
+    left: @left;
+    top: @top;
+    width: @w;
+    height: @h;
+}
+//按钮样式
+.btnSet(@w:110px;@h:30px;@bgcolor:#f60;@color:#fff){
+    display: inline-block;
+    width: @w;
+    height: @h;
+    line-height: @h;
+    text-align: center;
+    background-color: @bgcolor;
+    color:@color;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
