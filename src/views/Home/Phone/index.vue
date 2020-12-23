@@ -61,7 +61,6 @@ export default {
             categoryId:100012,
             pageSize:8
         }).then(res=>{
-            console.log(res);
             this.phoneData = res.data.list;
         });
     },

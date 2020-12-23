@@ -10,7 +10,7 @@ instace.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencod
 //设置拦截器
 instace.interceptors.request.use(config=>{
     if(config.method === 'post'){
-        config.data = qs.stringify(config.data);
+        config.data = config.data;
     }
     return config;
 },error=>{

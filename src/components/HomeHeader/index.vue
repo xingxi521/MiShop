@@ -9,9 +9,16 @@
                     <a href="javascript:;">协议规则</a>
                 </div>
                 <div class="top-right">
-                    <a href="javascript:;">登录</a>
-                    <a href="javascript:;">注册</a>
-                    <a href="javascript:;" class="shop-car"><span></span>购物车</a>
+                    <template v-if="username">
+                        <a href="javascript:;">{{username}}</a>
+                        <a href="javascript:;">退出</a>
+                        <a href="javascript:;" class="shop-car"><span></span>购物车({{carCount}})</a>
+                    </template>
+                    <template v-else>
+                        <router-link to="/login">登录</router-link>
+                        <a href="javascript:;">注册</a>
+                        <a href="javascript:;" class="shop-car"><span></span>购物车</a>
+                    </template>
                 </div>
             </div>
         </div>
@@ -58,6 +65,7 @@
     </div>
 </template>
 <script>
+import { mapState } from 'vuex'
 export default {
     name:'HomeHeader',
     data(){
@@ -72,6 +80,9 @@ export default {
         }).then(res=>{
             this.ProductsData = res.data.list
         });
+    },
+    computed:{
+        ...mapState(['username','carCount'])
     },
     filters:{
         priceFilter(val){
