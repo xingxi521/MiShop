@@ -4,7 +4,8 @@ import VueRouter from 'vue-router'
 import HomeLayout from '../views/HomeLayout'//首页、详情布局
 import Home from '../views/Home'//首页
 import Details from '../views/Details'//详情页
-import Login from '../views/Login'
+import Product from '../views/Product'//产品站
+import Login from '../views/Login'//登陆页面
 Vue.use(VueRouter)
 
 const routes = [
@@ -22,6 +23,11 @@ const routes = [
         path:'/details',
         name:'Details',
         component:Details
+      },
+      {
+        path:'/product/:id',
+        name:'Product',
+        component:Product
       }
     ]
   },

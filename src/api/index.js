@@ -18,6 +18,10 @@ const api = {
     //拉取购物车数量
     getCarCount(){
         return axios.get(baseUrl.host+baseUrl.carCount);
+    },
+    //获取单个商品数据
+    getOnlyProduct(id){
+        return axios.get(baseUrl.host+baseUrl.products+"/"+id);
     }
 }
 export default api

@@ -3,7 +3,7 @@
         <LeftNav/>
         <swiper :options="swiperOption">
             <swiper-slide v-for="(item,index) in navBannerList" :key="index">
-                <router-link class="homeswiper-img" :to="'/details/'+item.id"><img :src="item.imgLink" alt=""></router-link>
+                <router-link class="homeswiper-img" :to="'/product/'+item.id"><img :src="item.imgLink" alt=""></router-link>
             </swiper-slide>
             <div class="swiper-pagination"  slot="pagination"></div>
             <div class="swiper-button-prev" slot="button-prev"></div>
