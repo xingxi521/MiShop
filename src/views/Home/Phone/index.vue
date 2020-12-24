@@ -76,10 +76,21 @@ export default {
         //模态框确定事件
         submitHandler(){
             this.showModal = false;
+            this.$router.push('/shopcar');
         },
         //添加购物车
         addCar(id){
-            this.showModal = true;
+            this.$api.postBuyCar({
+                productId:id,
+                selected: true
+            }).then(res=>{
+                if(res.status == 0){
+                    this.showModal = true;
+                    this.$store.commit('setCarCount',res.data.cartTotalQuantity)
+                }else{
+                    this.$router.push('/login');
+                }
+            });
         }
     },
     filters:{

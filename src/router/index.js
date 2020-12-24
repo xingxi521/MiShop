@@ -6,6 +6,7 @@ import Home from '../views/Home'//首页
 import Details from '../views/Details'//详情页
 import Product from '../views/Product'//产品站
 import Login from '../views/Login'//登陆页面
+import ShopCar from '../views/ShopCar'//购物车页面
 Vue.use(VueRouter)
 
 const routes = [
@@ -20,7 +21,7 @@ const routes = [
         component:Home
       },
       {
-        path:'/details',
+        path:'/details/:id',
         name:'Details',
         component:Details
       },
@@ -35,6 +36,11 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: Login,
+  },
+  {
+    path: '/shopcar',
+    name: 'ShopCar',
+    component: ShopCar,
   }
 ]
 

@@ -39,6 +39,11 @@ export default {
                 if(res.status == 0){
                     this.$cookie.set('userId', res.data.id, { expires: '1M' });
                     this.$store.commit('setUserName',res.data.username);
+                    this.$api.getCarCount().then(result=>{
+                        if(result.status == 0){
+                            this.$store.commit('setCarCount',result.data);
+                        }
+                    });
                     this.$router.push('/');
                 }else{
                     alert(res.msg);

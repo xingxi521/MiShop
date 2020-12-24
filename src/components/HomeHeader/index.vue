@@ -12,7 +12,7 @@
                     <template v-if="username">
                         <a href="javascript:;">{{username}}</a>
                         <a href="javascript:;">退出</a>
-                        <a href="javascript:;" class="shop-car"><span></span>购物车({{carCount}})</a>
+                        <router-link to="/shopcar" class="shop-car"><span></span>购物车({{carCount}})</router-link>
                     </template>
                     <template v-else>
                         <router-link to="/login">登录</router-link>

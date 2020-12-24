@@ -7,7 +7,8 @@
                 <a href="javascript:;">参数</a><span>|</span>
                 <a href="javascript:;">咨询客服</a><span>|</span>
                 <a href="javascript:;">用户评价</a>
-                <button class="buy">立即购买</button>
+                <!-- <button class="buy">立即购买</button> -->
+                <slot name="btn"></slot>
             </div>
         </div>
     </div>
@@ -52,6 +53,7 @@ export default {
         width: 100%;
         height: 63px;
         line-height: 63px;
+        z-index: 2;
         &.setFixed{
             position: fixed;
             top: 0;

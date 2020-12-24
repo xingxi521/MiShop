@@ -22,6 +22,30 @@ const api = {
     //获取单个商品数据
     getOnlyProduct(id){
         return axios.get(baseUrl.host+baseUrl.products+"/"+id);
+    },
+    //添加购物车
+    postBuyCar(params){
+        return axios.post(baseUrl.host+baseUrl.addBuyCar,params);
+    },
+    //获取购物车列表数据
+    getBuyCarList(){
+        return axios.get(baseUrl.host+baseUrl.buyCarList);
+    },
+    //购物车全选中
+    putselectAll(){
+        return axios.put(baseUrl.host+baseUrl.selectAll);
+    },
+    //购物车全不选中
+    putunSelectAll(){
+        return axios.put(baseUrl.host+baseUrl.unSelectAll);
+    },
+    //购物车数量/选中更新
+    putUpdateCar(id,params){
+        return axios.put(baseUrl.host+baseUrl.updateCar+"/"+id,params);
+    },
+    //删除购物车商品
+    delCarData(id){
+        return axios.delete(baseUrl.host+baseUrl.delCarData+"/"+id);
     }
 }
 export default api

@@ -1,6 +1,10 @@
 <template>
     <div class="product-main">
-        <product-bar :title="productData.name"></product-bar>
+        <product-bar :title="productData.name">
+            <template v-slot:btn>
+                <button class="buy" @click="buyHandler">立即购买</button>
+            </template>
+        </product-bar>
         <div class="product-desc">
             <div class="item_bg1">
                 <div class="item1_text">
@@ -80,6 +84,10 @@ export default {
                     this.productData = res.data;
                 }
             })
+        },
+        //立即购买事件
+        buyHandler(){
+            this.$router.push('/details/'+this.$route.params.id);
         }
     }
 }
