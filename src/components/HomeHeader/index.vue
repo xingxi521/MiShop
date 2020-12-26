@@ -11,13 +11,13 @@
                 <div class="top-right">
                     <template v-if="username">
                         <a href="javascript:;">{{username}}</a>
-                        <a href="javascript:;">退出</a>
+                        <a href="javascript:;" @click="logoutHandler">退出</a>
                         <router-link to="/shopcar" class="shop-car"><span></span>购物车({{carCount}})</router-link>
                     </template>
                     <template v-else>
                         <router-link to="/login">登录</router-link>
                         <a href="javascript:;">注册</a>
-                        <a href="javascript:;" class="shop-car"><span></span>购物车</a>
+                        <router-link to="/shopcar" class="shop-car"><span></span>购物车</router-link>
                     </template>
                 </div>
             </div>
@@ -80,6 +80,18 @@ export default {
         }).then(res=>{
             this.ProductsData = res.data.list
         });
+    },
+    methods:{
+        //退出登陆
+        logoutHandler(){
+            this.$api.postLogOut().then(res=>{
+                if(res.status == 0){
+                    this.$cookie.delete('userId');
+                    this.$store.commit('setUserName','');
+                    this.$store.commit('setCarCount',0);
+                }
+            });
+        }
     },
     computed:{
         ...mapState(['username','carCount'])

@@ -6,19 +6,30 @@
             </div>
             <div class="car-title">
                 <h2>
-                    我的购物车
-                    <span>温馨提示：产品是否购买成功，以最终下单为准哦，请尽快结算</span>
+                    {{title}}
+                    <!-- <span>温馨提示：产品是否购买成功，以最终下单为准哦，请尽快结算</span> -->
+                    <slot name="body"></slot>
                 </h2>
             </div>
             <div class="car-right">
-                <span>欢迎用户:jack</span>
+                <span>欢迎用户:{{username}}</span>
             </div>
         </div>
     </div>
 </template>
 <script>
+import { mapState } from 'vuex'
 export default {
-    name:'ShopCarHeader'
+    name:'ShopCarHeader',
+    computed:{
+        ...mapState(['username'])
+    },
+    props:{
+        title:{
+            type:String,
+            default:''
+        }
+    }
 }
 </script>
 <style lang="less" scoped>

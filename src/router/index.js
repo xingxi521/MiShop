@@ -7,6 +7,8 @@ import Details from '../views/Details'//详情页
 import Product from '../views/Product'//产品站
 import Login from '../views/Login'//登陆页面
 import ShopCar from '../views/ShopCar'//购物车页面
+import Order from '../views/Order'//订单类页面布局
+import OrderConfirm from '../views/Order/OrderConfirm'//确认订单页面
 Vue.use(VueRouter)
 
 const routes = [
@@ -41,6 +43,18 @@ const routes = [
     path: '/shopcar',
     name: 'ShopCar',
     component: ShopCar,
+  },
+  {
+    path:'/order',
+    name:'OrderLayout',
+    component:Order,
+    children:[
+      {
+        path:'/order',
+        name:'order',
+        component:OrderConfirm
+      }
+    ]
   }
 ]
 

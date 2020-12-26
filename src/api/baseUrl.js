@@ -10,5 +10,10 @@ const baseUrl = {
     unSelectAll:'/carts/unSelectAll',//购物车全不选中
     updateCar:'/carts',//更新购物车数量/选中状态
     delCarData:'/carts',//删除购物车数据
+    logOut:'/user/logout',//退出登陆接口
+    shippings:'/shippings',//获取收货地址列表
+    delShippings:'/shippings',//删除收货地址
+    addShippings:'/shippings',//添加收货地址
+    updateShippings:'/shippings',//更新收货地址
 }
 export default baseUrl

@@ -4,6 +4,7 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 import api from './api'
+import './Plugins/elementUi.js'
 import VueLazyLoad from 'vue-lazyload'
 import VueCookie from 'vue-cookie'
 Vue.config.productionTip = false

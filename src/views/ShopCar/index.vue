@@ -1,6 +1,10 @@
 <template>
     <div class="shopcar-main">
-        <ShopCarHeader/>
+        <shop-car-header title="我的购物车">
+            <template v-slot:body>
+                <span>温馨提示：产品是否购买成功，以最终下单为准哦，请尽快结算</span>
+            </template>
+        </shop-car-header>
         <div class="shopcar-wrap">
             <div class="container">
                 <div class="car-table">
@@ -56,7 +60,7 @@
                     </div>
                     <div class="bottom-right">
                         合计:<span>{{totalPrice}}元</span>
-                        <button class="settlementBtn">去结算</button>
+                        <button class="settlementBtn" @click="gotoHandler">去结算</button>
                     </div>
                 </div>
             </div>
@@ -133,13 +137,13 @@ export default {
             let productSelected = item.productSelected;
             if(type == "+"){
                 if(count > item.productStock){
-                    alert('商品数量已超出库存');
+                    this.$message.warning('商品数量已超出库存');
                     return;
                 }
                 ++count;
             }else if(type == "-"){
                 if(count <= 1){
-                    alert('至少需要一个数量');
+                    this.$message.warning('至少需要一个数量');
                     return;
                 }
                 --count;
@@ -179,6 +183,20 @@ export default {
                     this.$router.push('/login');
                 }
             });
+        },
+        //去结算事件
+        gotoHandler(){
+            let canGo = this.listData.some(item=>item.productSelected);
+            if(this.listData.length > 0){
+                if(canGo){
+                    this.$router.push('/order');
+                }else{
+                    this.$message.warning('至少需要一个商品才能结算');
+                }
+            }else{
+                this.$message.warning('至少需要一个商品才能结算');
+            }
+            
         }
     }
 }

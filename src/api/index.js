@@ -46,6 +46,26 @@ const api = {
     //删除购物车商品
     delCarData(id){
         return axios.delete(baseUrl.host+baseUrl.delCarData+"/"+id);
+    },
+    //退出登陆
+    postLogOut(){
+        return axios.post(baseUrl.host+baseUrl.logOut);
+    },
+    //收货地址列表
+    getShippings(){
+        return axios.get(baseUrl.host+baseUrl.shippings);
+    },
+    //删除收货地址
+    delShippings(id){
+        return axios.delete(baseUrl.host+baseUrl.delShippings+"/"+id);
+    },
+    //添加收货地址
+    addShippings(params){
+        return axios.post(baseUrl.host+baseUrl.addShippings,params);
+    },
+    //修改收货地址
+    updateShippings(id,params){
+        return axios.put(baseUrl.host+baseUrl.updateShippings+"/"+id,params);
     }
 }
 export default api
