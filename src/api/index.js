@@ -66,6 +66,22 @@ const api = {
     //修改收货地址
     updateShippings(id,params){
         return axios.put(baseUrl.host+baseUrl.updateShippings+"/"+id,params);
+    },
+    //创建订单接口
+    postCreateOrders(params){
+        return axios.post(baseUrl.host+baseUrl.createOrders,params);
+    },
+    //单个订单详情接口
+    getOrdersDetail(id){
+        return axios.get(baseUrl.host+baseUrl.ordersDetail+"/"+id);
+    },
+    //支付接口
+    postPay(params){
+        return axios.post(baseUrl.host+baseUrl.pay,params);
+    },
+    //注册账号接口
+    postRegister(params){
+        return axios.post(baseUrl.host+baseUrl.register,params);
     }
 }
 export default api

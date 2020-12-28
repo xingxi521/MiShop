@@ -9,6 +9,9 @@ import Login from '../views/Login'//登陆页面
 import ShopCar from '../views/ShopCar'//购物车页面
 import Order from '../views/Order'//订单类页面布局
 import OrderConfirm from '../views/Order/OrderConfirm'//确认订单页面
+import OrderPay from '../views/Order/OrderPay'//订单支付页面
+import AliPay from '../views/Order/OrderPay/AliPay'//支付宝支付等待页面
+import OrderList from '../views/Order/OrderList'//订单列表
 Vue.use(VueRouter)
 
 const routes = [
@@ -53,6 +56,21 @@ const routes = [
         path:'/order',
         name:'order',
         component:OrderConfirm
+      },
+      {
+        path:'orderpay/:id',
+        name:'orderpay',
+        component:OrderPay
+      },
+      {
+        path:'alipay/:id',
+        name:'alipay',
+        component:AliPay
+      },
+      {
+        path:'orderlist',
+        name:'orderlist',
+        component:OrderList
       }
     ]
   }

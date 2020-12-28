@@ -10,7 +10,7 @@
                 <div class="box_header">
                     <a href="javascript:;" class="box_header_title">帐号登录</a>
                     <span class="line"></span>
-                    <a href="javascript:;" class="box_header_sao">扫码登陆</a>
+                    <a href="javascript:;" class="box_header_sao" @click="registerHandler">扫码登陆</a>
                 </div>
                 <div class="box_content">
                     <input type="text" placeholder="邮件/手机号码/小米ID" v-model="username">
@@ -49,6 +49,17 @@ export default {
                     this.$message.error(res.msg);
                 }
             })
+        },
+        registerHandler(){
+            // this.$api.postRegister({
+            //     username:'xingxi',
+            //     password:'123456',
+            //     email:'xingxi@qq.com'
+            // }).then(res=>{
+            //     console.log(res);
+            //     if(res.status == 0){
+            //     }
+            // });
         }
     },
 }

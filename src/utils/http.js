@@ -1,5 +1,4 @@
 import axios from 'axios'
-import qs from 'querystring'
 //创建axios实例
 const instace = axios.create({
     timeout:5000
@@ -30,6 +29,9 @@ const errorHandler = (status,msg)=>{
             break;
         case 404:
             console.log("URL无效或者URL有效但是没有资源");
+            break;
+        case 500:
+            alert(msg.message);
             break;
         default:
             console.log(msg);

@@ -15,5 +15,9 @@ const baseUrl = {
     delShippings:'/shippings',//删除收货地址
     addShippings:'/shippings',//添加收货地址
     updateShippings:'/shippings',//更新收货地址
+    createOrders:'/orders',//创建订单
+    ordersDetail:'/orders',//单个订单详情
+    pay:'/pay',//支付
+    register:'/user/register',//注册账号
 }
 export default baseUrl

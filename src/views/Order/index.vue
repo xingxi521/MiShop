@@ -32,6 +32,9 @@ export default {
         if(path == '/order'){
             this.headTitle = "确认订单";
             this.tip = "请谨防钓鱼链接或诈骗电话，了解更多>";
+        }else if(path == '/order/orderpay/'+this.$route.params.id){
+            this.headTitle = "订单支付";
+            this.tip = "请谨防钓鱼链接或诈骗电话，了解更多>";
         }
     },
 }

@@ -24,7 +24,7 @@
                 <div class="address-box">
                     <h2 class="adr-box-title">收货地址</h2>
                     <div class="address-list clearfloat">
-                        <div class="addr-item" v-for="(item,index) in addressDataList" :key="index" :class="{'checked':index == currenAddrIndex}"  @click="currenAddrIndex = index">
+                        <div class="addr-item" v-for="(item,index) in addressDataList" :key="index" :class="{'checked':index == currenAddrIndex}"  @click="selectedHandler(item.id,index)">
                             <h2 class="item-title">{{item.receiverName}}</h2>
                             <p class="item-phone">{{item.receiverMobile}}</p>
                             <p class="item-address">{{item.receiverProvince + ' ' + item.receiverCity + ' ' + item.receiverDistrict + ' ' + item.receiverAddress}}</p>
@@ -146,7 +146,7 @@
                 </div>
                 <div class="btn-box">
                     <router-link to="/shopcar" class="back-car">返回购物车</router-link>
-                    <a href="javascript:;" class="go-total">去结算</a>
+                    <a href="javascript:;" class="go-total" @click="gotoPayHandler">去结算</a>
                 </div>
             </div> 
         </div>
@@ -170,7 +170,8 @@ export default {
             showEditorModal:false,//添加与编辑模态框显示
             addressParamsBind:{},//添加与编辑地址的数据绑定对象
             actionType:-1,//动作类型：1是添加 2是编辑
-            currenAddrIndex:0//当前选中的地址
+            currenAddrIndex:-1,//当前选中的地址的索引
+            orderNo:0//订单号
         }
     },
     mounted() {
@@ -325,6 +326,32 @@ export default {
                 return false;
             }
             return true;
+        },
+        //地址选中事件
+        selectedHandler(id,idx){
+            this.currenAddrIndex = idx;
+            this.selectedAddressId = id;
+        },
+        //跳转结算
+        gotoPayHandler(){
+            let hasSelectAddr = this.addressDataList[this.currenAddrIndex];
+            if(!hasSelectAddr){
+                this.$message.warning('请选择一个地址再进行结算');
+            }else if(this.selectedAddressId <= 0){
+                this.$message.warning('请选择一个地址再进行结算');
+            }
+            else if(this.shopCarDataList.length > 0){
+                this.$api.postCreateOrders({
+                    shippingId:this.selectedAddressId
+                }).then(res=>{
+                    if(res.status == 0){
+                        this.orderNo = res.data.orderNo;
+                        this.$router.push(`/order/orderpay/${this.orderNo}`);
+                    }else{
+                        this.$message.error(res.msg);
+                    }
+                });
+            }
         }
     }
 }
