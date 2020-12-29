@@ -9,5 +9,9 @@ module.exports = {
                 changeOrigin: true
             }
         }
+    },
+    productionSourceMap:false,
+    chainWebpack:config=>{
+        config.plugins.delete('prefetch');
     }
 }
