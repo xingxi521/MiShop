@@ -40,6 +40,7 @@ export default {
         line-height: 55px;
         padding: 30px 0;
         border-bottom: 2px solid @colorA;
+        background: @colorG;
         .container{
             display: flex;
             justify-content: space-between;

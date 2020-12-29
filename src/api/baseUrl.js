@@ -19,5 +19,6 @@ const baseUrl = {
     ordersDetail:'/orders',//单个订单详情
     pay:'/pay',//支付
     register:'/user/register',//注册账号
+    orderList:'/orders',//所有订单列表
 }
 export default baseUrl

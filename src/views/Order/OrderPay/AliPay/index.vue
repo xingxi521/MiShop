@@ -1,13 +1,21 @@
 <template>
     <div class="alipay-main">
-        <img src="/imgs/loading-svg/loading-bars.svg" alt="">
-        <p>正在跳转到支付页面，请稍后...</p>
-        <div class="form" v-html="content"></div>
+        <!-- <img src="/imgs/loading-svg/loading-bars.svg" alt="">-->
+        <loading>
+            <template v-slot:body>
+                <p>正在跳转到支付页面，请稍后...</p>
+            </template>
+        </loading>
+        <div class="form" v-html="content"></div> 
     </div>
 </template>
 <script>
+import Loading from '../../../../components/Loading'
 export default {
     name:'AliPay',
+    components:{
+        Loading
+    },
     data(){
         return{
             content:''
@@ -37,14 +45,3 @@ export default {
     }
 }
 </script>
-<style lang="less" scoped>
-    .alipay-main{
-        text-align: center;
-        img{
-            width: 100px;
-        }
-        p{
-            font-size: 20px;
-        }
-    }
-</style>

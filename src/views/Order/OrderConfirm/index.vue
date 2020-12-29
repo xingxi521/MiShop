@@ -1,5 +1,10 @@
 <template>
     <div class="confirm-main">
+        <shop-car-hander title="确认订单">
+            <template v-slot:body>
+                <span>请谨防钓鱼链接或诈骗电话，了解更多></span>
+            </template>
+        </shop-car-hander>
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position: absolute; width: 0px; height: 0px; overflow: hidden;">
             <defs>
                 <symbol id="icon-add" viewBox="0 0 31 32">
@@ -19,7 +24,7 @@
                 </symbol>
             </defs>
         </svg>
-        <div class="container">
+        <div class="container" style="margin-top:35px">
             <div class="order-box">
                 <div class="address-box">
                     <h2 class="adr-box-title">收货地址</h2>
@@ -154,10 +159,13 @@
 </template>
 <script>
 import Modal from '../../../components/Modal'
+import ShopCarHander from '../../../components/ShopCarHander'
+
 export default {
     name:'OrderConfirm',
     components:{
-        Modal
+        Modal,
+        ShopCarHander
     },
     data() {
         return {
@@ -361,7 +369,6 @@ export default {
     @import url("../../../assets/less/mixin.less");
     .confirm-main{
         background-color:@colorJ;
-        padding-top: 30px;
         padding-bottom: 84px;
         .order-box{
             background-color: @colorG;

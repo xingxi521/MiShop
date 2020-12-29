@@ -1,5 +1,10 @@
 <template>
     <div class="pay-main">
+        <shop-car-hander title="订单支付">
+            <template v-slot:body>
+                <span>请谨防钓鱼链接或诈骗电话，了解更多></span>
+            </template>
+        </shop-car-hander>
         <div class="container">
             <div class="pay-top">
                 <div class="pay-top-head">
@@ -70,11 +75,13 @@
 import WxPay from './WxPay'
 import Modal from '../../../components/Modal'
 import QRCode from 'qrcode'
+import ShopCarHander from '../../../components/ShopCarHander'
 export default {
     name:'OrderPay',
     components:{
         WxPay,
-        Modal
+        Modal,
+        ShopCarHander
     },
     data(){
         return{
@@ -167,8 +174,9 @@ export default {
     @import url("../../../assets/less/mixin.less");
     .pay-main{
         background-color: @colorJ;
-        padding: 30px 0 60px 0;
+        padding: 0 0 60px 0;
         .container{
+            margin-top: 30px;
             .pay-top{
                 padding: 62px 50px;
                 background-color: @colorG;

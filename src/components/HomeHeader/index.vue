@@ -12,6 +12,7 @@
                     <template v-if="username">
                         <a href="javascript:;">{{username}}</a>
                         <a href="javascript:;" @click="logoutHandler">退出</a>
+                        <router-link to="/order/orderlist">我的订单</router-link>
                         <router-link to="/shopcar" class="shop-car"><span></span>购物车({{carCount}})</router-link>
                     </template>
                     <template v-else>

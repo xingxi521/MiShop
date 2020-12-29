@@ -82,6 +82,12 @@ const api = {
     //注册账号接口
     postRegister(params){
         return axios.post(baseUrl.host+baseUrl.register,params);
+    },
+    //获取所有订单列表
+    getOrderList(params){
+        return axios.get(baseUrl.host+baseUrl.orderList,{
+            params
+        });
     }
 }
 export default api
