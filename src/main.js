@@ -7,6 +7,7 @@ import api from './api'
 import './Plugins/elementUi.js'
 import VueLazyLoad from 'vue-lazyload'
 import VueCookie from 'vue-cookie'
+import 'swiper/swiper-bundle.css'
 Vue.config.productionTip = false
 Vue.prototype.$api = api
 Vue.use(VueLazyLoad,{

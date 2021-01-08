@@ -41,7 +41,8 @@
                                     <svg class="icon icon-edit"><use xlink:href="#icon-edit"></use></svg>
                                 </a>
                             </div>
-                            <modal 
+                        </div>
+                        <modal 
                             title="提示" 
                             :btnType="2" 
                             sureText="确定删除此地址" 
@@ -99,7 +100,6 @@
                                     </div>
                                 </template>
                             </modal>
-                        </div>
                         <div class="addr-add" @click="openEditorModal(1)">
                             <div class="add-icon"></div>
                             <p>添加新地址</p>
@@ -248,6 +248,7 @@ export default {
             this.showEditorModal = true;
             this.actionType = type;
             this.selectedAddressId = id;
+            console.log(this.selectedAddressId);
             if(type == 1){
                 this.addressParamsBind = {};
             }else if(type == 2){
@@ -296,6 +297,7 @@ export default {
                         }
                     });
                 }else if(this.actionType == 2){//编辑修改
+                    console.log(this.selectedAddressId);
                     this.$api.updateShippings(this.selectedAddressId,tempParams).then(res=>{
                         if(res.status == 0){
                             this.showEditorModal = false;
@@ -383,6 +385,50 @@ export default {
                     margin-bottom: 21px;
                 }
                 .address-list{
+                    .item_wrap{
+                        box-sizing: border-box;
+                        .item_one{
+                            margin-bottom: 10px;
+                            input{
+                                display: inline-block;
+                                width: 260px;
+                                height: 40px;
+                                line-height: 40px;
+                                padding-left: 15px;
+                                border: 1px solid @colorH;
+                                &:first-child{
+                                    margin-right: 10px;
+                                }
+                            }
+                        }
+                        .item_two{
+                            margin-bottom: 10px;
+                            select{
+                                margin-right: 10px;
+                                display: inline-block;
+                                width: 100px;
+                                height: 30px;
+                                margin-top: 5px;
+                            }
+                        }
+                        .item_three{
+                            margin-bottom: 10px;
+                            textarea{
+                                width: 100%;
+                                height: 50px;
+                            }
+                        }
+                        .item_four{
+                            input{
+                                display: inline-block;
+                                width: 260px;
+                                height: 40px;
+                                line-height: 40px;
+                                padding-left: 15px;
+                                border: 1px solid @colorH;
+                            }
+                        }
+                    }
                     .addr-item{
                         box-sizing: border-box;
                         float: left;
@@ -425,50 +471,7 @@ export default {
                                 }
                             }
                         }
-                        .item_wrap{
-                            box-sizing: border-box;
-                            .item_one{
-                                margin-bottom: 10px;
-                                input{
-                                    display: inline-block;
-                                    width: 260px;
-                                    height: 40px;
-                                    line-height: 40px;
-                                    padding-left: 15px;
-                                    border: 1px solid @colorH;
-                                    &:first-child{
-                                        margin-right: 10px;
-                                    }
-                                }
-                            }
-                            .item_two{
-                                margin-bottom: 10px;
-                                select{
-                                    margin-right: 10px;
-                                    display: inline-block;
-                                    width: 100px;
-                                    height: 30px;
-                                    margin-top: 5px;
-                                }
-                            }
-                            .item_three{
-                                margin-bottom: 10px;
-                                textarea{
-                                    width: 100%;
-                                    height: 50px;
-                                }
-                            }
-                            .item_four{
-                                input{
-                                    display: inline-block;
-                                    width: 260px;
-                                    height: 40px;
-                                    line-height: 40px;
-                                    padding-left: 15px;
-                                    border: 1px solid @colorH;
-                                }
-                            }
-                        }
+                        
                     }
                     .addr-add{
                         box-sizing: border-box;

@@ -12,9 +12,6 @@
     </div>
 </template>
 <script>
-import 'swiper/swiper.min.css'
-import 'swiper/components/navigation/navigation.min.css';
-import 'swiper/components/pagination/pagination.min.css';
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import LeftNav from './LeftNav'
 export default {
